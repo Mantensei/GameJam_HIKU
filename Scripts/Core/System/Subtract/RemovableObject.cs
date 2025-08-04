@@ -12,8 +12,8 @@ namespace GameJam_HIKU
     /// </summary>
     public class RemovableObject : MonoBehaviour, IDamageable
     {
-        [field : SerializeField] public float removeDelay { get; private set; } = 0f;
-        [field : SerializeField] public DisableType disableType { get; private set; }
+        [field : SerializeField] public float removeDelay { get; set; } = 0f;
+        [field : SerializeField] public DisableType disableType { get; set; }
 
         private bool isRemoving = false;
 
@@ -44,38 +44,40 @@ namespace GameJam_HIKU
         /// </summary>
         private void HandleSystemRemove(DamageInfo damageInfo)
         {
+            isRemoving = true;
             onClicked?.Invoke(damageInfo);
 
             switch (disableType)
             {
                 case DisableType.Destroy:
+                    isRemoving = true;
                     DelayedActionManager.Execute(removeDelay, ExecuteDestroy);
                     break;
                 case DisableType.Deactivate:
+                    isRemoving = true;
                     DelayedActionManager.Execute(removeDelay, ExecuteDisable);
+                    break;
+                case DisableType.Damage:
+                    DelayedActionManager.Execute(removeDelay, () => HandleDamage(damageInfo));
                     break;
                 case DisableType.None:
                     Debug.Log($"{gameObject.name} は削除できません");
                     return;
                 default:
                     break;
-            }           
+            }
         }
 
-        /// <summary>
-        /// 通常ダメージ処理
-        /// </summary>
-        private void HandleDamage(DamageInfo damageInfo)
+        void HandleDamage(DamageInfo damageInfo)
         {
-            Debug.Log($"{gameObject.name} がダメージを受けました: {damageInfo.Damage}");
-
             //!Todo: 子にダメージ処理を委託
+            foreach(var damageable in GetComponentsInChildren<IDamageable>())
+            {
+                damageable.TakeDamage(damageInfo);
+            }
         }
 
-        /// <summary>
-        /// 実際の削除実行
-        /// </summary>
-        private void ExecuteDestroy()
+        void ExecuteDestroy()
         {
             Destroy(gameObject);
         }
@@ -90,6 +92,7 @@ namespace GameJam_HIKU
     {
         Destroy,
         Deactivate,
+        Damage,
         None,
     }
 }

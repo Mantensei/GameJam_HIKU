@@ -122,22 +122,5 @@ namespace GameJam_HIKU
                 }
             }
         }
-
-        /// <summary>
-        /// デバッグ用：設定の動的変更
-        /// </summary>
-        public void SetDetectionSettings(bool ui, bool gameObjects)
-        {
-            detectUI = ui;
-            detectGameObjects = gameObjects;
-        }
-
-        /// <summary>
-        /// デバッグ用：レイヤーマスクの動的変更
-        /// </summary>
-        public void SetGameObjectLayers(LayerMask layers)
-        {
-            gameObjectLayers = layers;
-        }
     }
 }
