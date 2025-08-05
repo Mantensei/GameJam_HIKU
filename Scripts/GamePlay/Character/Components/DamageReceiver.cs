@@ -7,12 +7,36 @@ namespace GameJam_HIKU
 {
     public class DamageReceiver : MonoBehaviour, IDamageable
     {
+        float invinsibleTimer;
+        [field:SerializeField] public float invinsibleTime { get; private set; } = 1;
+
         [GetComponent]
-        Animation2DRegisterer _anim;
+        ActionStateController stateController;
+
+        [GetComponent]
+        Animation2DRegisterer animRegisterer;
+
+        void Start()
+        {
+            animRegisterer?.OnCompleteAction(_ => stateController.UnlockState());
+        }
+
+        void Update()
+        {
+            invinsibleTimer -= Time.deltaTime;
+        }
+
 
         public void TakeDamage(DamageInfo damageInfo)
         {
-            _anim.Play();
+            if (invinsibleTimer > 0)
+            {
+                damageInfo.Result = DamageResult.Missed;
+                return;
+            }
+
+            invinsibleTimer = invinsibleTime;
+            stateController.TryForceLock(() => animRegisterer?.Play());
         }
     }
 }
