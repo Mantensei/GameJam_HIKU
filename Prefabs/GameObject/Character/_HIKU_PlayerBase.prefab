@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2813057936496394021}
   - component: {fileID: 2516116250522564897}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7359698417733071029}
   - component: {fileID: 185595260197705460}
   - component: {fileID: 1545512713975887836}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GroudChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2970969671672379106}
   - component: {fileID: 5974907295067455138}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5383134084051630789}
   - component: {fileID: 9152570601094206814}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073909364959715281}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2335571315311877722}
   - component: {fileID: 571092494997662410}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GeneralController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5704588773412030509}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 2196022225869544193}
   - component: {fileID: 627636780582949941}
   - component: {fileID: 5332398865483202518}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 767570093982353058}
   - component: {fileID: 2878761058787635234}
   - component: {fileID: 288013264674750786}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Mover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 6549964391327771937}
   - component: {fileID: 8514242588729131805}
   - component: {fileID: 4868781040668588665}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Jumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 78488713923352549}
   - component: {fileID: 5193653254761735130}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Action
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 9102237484295282851}
   - component: {fileID: 1828227589805682685}
   - component: {fileID: 714757189322900742}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Col
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3876149560948438847}
   - component: {fileID: 9180043277599801135}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +873,7 @@ GameObject:
   - component: {fileID: 1632863790999936146}
   - component: {fileID: 4437839825599999692}
   - component: {fileID: 6361581058970858835}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 2561203658471761298}
   - component: {fileID: 2009451186021910561}
   - component: {fileID: 8280697473780815552}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CeillingChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.25}
+  m_Size: {x: 0.18, y: 0.125}
   m_EdgeRadius: 0
 --- !u!114 &8280697473780815552
 MonoBehaviour:
@@ -1090,7 +1090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135662858690509648}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6731684726008098858}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Replay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1157,9 @@ GameObject:
   - component: {fileID: 4790287368015465649}
   - component: {fileID: 6651259343278519961}
   - component: {fileID: 1681592112511258242}
-  m_Layer: 6
+  - component: {fileID: 6711332083727435971}
+  - component: {fileID: 4363727202290018947}
+  m_Layer: 0
   m_Name: _HIKU_PlayerBase
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1306,6 +1308,65 @@ MonoBehaviour:
   sr: {fileID: 0}
   <GroundChecker>k__BackingField: {fileID: 1545512713975887836}
   <CeillingChecker>k__BackingField: {fileID: 8280697473780815552}
+--- !u!114 &6711332083727435971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598668930455490174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918a441e690fcbd4ebd97dbe661ddda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <removeDelay>k__BackingField: 0
+  <disableType>k__BackingField: 0
+--- !u!61 &4363727202290018947
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598668930455490174}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.05}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!1 &8894130300688575487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7617984231955135315}
   - component: {fileID: 1959672953427375073}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Observer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

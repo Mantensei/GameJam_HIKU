@@ -44,7 +44,6 @@ namespace GameJam_HIKU
         /// </summary>
         private void HandleSystemRemove(DamageInfo damageInfo)
         {
-            isRemoving = true;
             onClicked?.Invoke(damageInfo);
 
             switch (disableType)
@@ -73,6 +72,7 @@ namespace GameJam_HIKU
             //!Todo: 子にダメージ処理を委託
             foreach(var damageable in GetComponentsInChildren<IDamageable>())
             {
+                if((object)damageable == this) continue; // 自分自身は除外
                 damageable.TakeDamage(damageInfo);
             }
         }
