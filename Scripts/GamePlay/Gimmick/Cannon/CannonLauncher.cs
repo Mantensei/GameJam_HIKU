@@ -31,6 +31,7 @@ namespace GameJam_HIKU
         [field: SerializeField] public bool UseMouseDirection { get; private set; } = false;
 
         //[Header("Projectile Physics")]
+        [field: SerializeField] public bool SetToChildren { get; private set; } = true;
         [field: SerializeField] public LayerMask CollisionLayers { get; private set; } = -1;
         [field: SerializeField] public bool DestroyOnCollision { get; private set; } = false;
         [field: SerializeField] public bool DamageOnCollision { get; private set; } = false;
@@ -118,6 +119,11 @@ namespace GameJam_HIKU
 
             // インスタンス生成
             GameObject instance = Instantiate(prefab, LaunchPoint.position, LaunchPoint.rotation);
+
+            if (SetToChildren)
+            {
+                instance.transform.SetParent(transform);
+            }
 
             // ProjectileComponent を動的追加
             Projectile projectile = instance.GetComponent<Projectile>();

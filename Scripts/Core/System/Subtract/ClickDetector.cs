@@ -40,7 +40,7 @@ namespace GameJam_HIKU
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0)) // 左クリック
+            if (Input.GetMouseButtonDown(1)) // 右クリック
             {
                 HandleClick();
             }
