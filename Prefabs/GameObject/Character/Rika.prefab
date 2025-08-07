@@ -1,5 +1,151 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5788359184532752579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3827443841644403914}
+  - component: {fileID: 4742199034034537423}
+  - component: {fileID: 3958043362711642028}
+  - component: {fileID: 8976003692659787179}
+  m_Layer: 0
+  m_Name: Attack_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3827443841644403914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788359184532752579}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8561361043840576110}
+  m_Father: {fileID: 6294561397537474360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4742199034034537423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788359184532752579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71803c25c34ef94fa2901b8a0e3760f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMarker: {fileID: 0}
+  sr: {fileID: 0}
+  lockOptions: 0
+--- !u!114 &3958043362711642028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788359184532752579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1261a127e63b3cf458331c0cd8ba30aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AnimationData2D>k__BackingField:
+    <name>k__BackingField: Rika_Attack02
+    <frames>k__BackingField:
+    - <sprite>k__BackingField: {fileID: 3434909144245326126, guid: e28c438de3d3ab0439bbb93e0ec1f9c3, type: 3}
+      <duration>k__BackingField: 0.16666667
+    - <sprite>k__BackingField: {fileID: -6061330799293831454, guid: e28c438de3d3ab0439bbb93e0ec1f9c3, type: 3}
+      <duration>k__BackingField: 0.16666667
+    - <sprite>k__BackingField: {fileID: -5508903763552512079, guid: e28c438de3d3ab0439bbb93e0ec1f9c3, type: 3}
+      <duration>k__BackingField: 0.16666666
+    - <sprite>k__BackingField: {fileID: 7263635010638873919, guid: e28c438de3d3ab0439bbb93e0ec1f9c3, type: 3}
+      <duration>k__BackingField: 0.16666669
+    - <sprite>k__BackingField: {fileID: 7263635010638873919, guid: e28c438de3d3ab0439bbb93e0ec1f9c3, type: 3}
+      <duration>k__BackingField: 0.016666668
+    <priority>k__BackingField: 100
+    <speed>k__BackingField: 2
+    <loop>k__BackingField: 0
+--- !u!114 &8976003692659787179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788359184532752579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb950e9d8525aa47a34a8402052c9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7744510057679326305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8561361043840576110}
+  - component: {fileID: 6344309781910852294}
+  m_Layer: 0
+  m_Name: DamageObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8561361043840576110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744510057679326305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3827443841644403914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6344309781910852294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744510057679326305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3cedb101737cf4fa52775a5304025a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DamageInfo>k__BackingField:
+    <Damage>k__BackingField: 5
+  <AttributeTags>k__BackingField: []
+  <SpawnOffset>k__BackingField: {x: 0.75, y: 0}
+  <LifeTime>k__BackingField: 0.2
+  <TargetTags>k__BackingField:
+  - Player
+  - Stage
+  <SetAsChild>k__BackingField: 1
+  <Shape>k__BackingField: 0
+  <Size>k__BackingField: {x: 0.75, y: 0.5}
+  <SpawnOnAwake>k__BackingField: 0
 --- !u!1001 &6218379461434069213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8,17 +154,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 571092494997662410, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<name>k__BackingField
+      value: Rika_Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[0].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -4909980628346208669, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[1].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 2729195728035203832, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[2].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 1136287744053672802, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[3].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 1692114320307707150, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 1876690547160162265, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[4].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 1692114320307707150, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<name>k__BackingField
+      value: Rika_Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[0].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 1687239846543419425, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[1].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -2086326912554981746, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[2].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 569229169510844222, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[3].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -4004205664842412118, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 2878761058787635234, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[4].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -4004205664842412118, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.883412
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.8262959
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.2402234
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +224,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48,12 +246,205 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4437839825599999692, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8887112640621816465, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4437839825599999692, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<name>k__BackingField
+      value: Rika_Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<speed>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[0].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 8533419740724187431, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[1].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 900079308800954853, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[2].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 1480687629064463123, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[3].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -7503944624516518656, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[4].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -7503944624516518656, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 4868781040668588665, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[4].<duration>k__BackingField
+      value: 0.016666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<name>k__BackingField
+      value: Rika_Fall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[0].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -4760214796767251027, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[1].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -2785916269625764882, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[2].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 6809916531645345808, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[3].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 3398224497181429491, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 5332398865483202518, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <AnimationData2D>k__BackingField.<frames>k__BackingField.Array.data[4].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 3398224497181429491, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 5974907295067455138, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: speed
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038907369224671391, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <invinsibleTime>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549964391327771937, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: height
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711332083727435971, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: <disableType>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8598668930455490174, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_Name
-      value: _HIKU_PlayerBase
+      value: Rika
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<loop>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<name>k__BackingField
+      value: Rika_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<speed>k__BackingField
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[0].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -8887112640621816465, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[1].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -8675150276372281518, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[2].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: -1584180577951452624, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[3].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 5735608819961063769, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[4].<sprite>k__BackingField
+      value: 
+      objectReference: {fileID: 5735608819961063769, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[0].<duration>k__BackingField
+      value: 0.16666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[1].<duration>k__BackingField
+      value: 0.16666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[2].<duration>k__BackingField
+      value: 0.16666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[3].<duration>k__BackingField
+      value: 0.16666669
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180043277599801135, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[4].<duration>k__BackingField
+      value: 0.016666668
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 1308551890130250693, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 78488713923352549, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 3827443841644403914}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4199398267769493200, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5493098521808568235}
+    - targetCorrespondingSourceObject: {fileID: 9144535392624966463, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8788572083431587252}
   m_SourcePrefab: {fileID: 100100000, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+--- !u!1 &2930705711249304546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9144535392624966463, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+  m_PrefabInstance: {fileID: 6218379461434069213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8788572083431587252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930705711249304546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1bbd6948d33114e8c8a22dd1de9c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &6294561397537474360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 78488713923352549, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+  m_PrefabInstance: {fileID: 6218379461434069213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7785419004144141837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4199398267769493200, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+  m_PrefabInstance: {fileID: 6218379461434069213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5493098521808568235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785419004144141837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf12df88b08a364f8d965cf52c4b5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

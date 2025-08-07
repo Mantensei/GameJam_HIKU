@@ -35,7 +35,7 @@ namespace GameJam_HIKU
         }
     }
 
-        /// <summary>
+    /// <summary>
     /// ダメージの種類を定義
     /// </summary>
     public enum DamageType
@@ -48,6 +48,11 @@ namespace GameJam_HIKU
         /// <summary>
         /// システム的削除（「引く」操作による除去）
         /// </summary>
-        System = 1
+        System = 1,
+
+        /// <summary>
+        /// 無敵時間が発生しないダメージ
+        /// </summary>
+        No_Invinsible = 2,
     }
 }

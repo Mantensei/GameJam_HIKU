@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5183671354071903815}
   - component: {fileID: 5994520704914113410}
   m_Layer: 0
-  m_Name: Buellet
+  m_Name: Bullet
   m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,11 +127,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DamageInfo>k__BackingField:
     <Damage>k__BackingField: 1
+  <AttributeTags>k__BackingField:
+  - No_Invinsible
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
-  <LifeTime>k__BackingField: 0
+  <LifeTime>k__BackingField: 1
   <TargetTags>k__BackingField:
   - Player
   - Stage
   <SetAsChild>k__BackingField: 1
   <Shape>k__BackingField: 1
   <Size>k__BackingField: {x: 0.25, y: 0}
+  <SpawnOnAwake>k__BackingField: 1

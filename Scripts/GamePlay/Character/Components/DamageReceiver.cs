@@ -35,8 +35,16 @@ namespace GameJam_HIKU
                 return;
             }
 
-            invinsibleTimer = invinsibleTime;
-            stateController.TryForceLock(() => animRegisterer?.Play());
+            if(!damageInfo.HasTag(DamageType.No_Invinsible))
+            {
+                invinsibleTimer = invinsibleTime;
+                stateController.TryForceLock(() => animRegisterer?.Play());
+            }
+
+            foreach(var provider in GetComponentsInChildren<IHPProvider>())
+            {
+                provider.TakeDamage(damageInfo);
+            }
         }
     }
 }
