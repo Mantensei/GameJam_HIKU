@@ -10,6 +10,7 @@ namespace GameJam_HIKU
     {
         [field: SerializeField] public Camera TargetCamera { get; private set; }
         [field: SerializeField] public LayerMask DetectionLayers { get; private set; } = -1;
+        [field: SerializeField] public LayerMask WallLayers { get; private set; } = 1 << 3; // Default レイヤー等
         [field: SerializeField] public float DetectionRange { get; private set; } = 10f;
         [field: SerializeField] public bool RequireLineOfSight { get; private set; } = true;
 
@@ -44,8 +45,8 @@ namespace GameJam_HIKU
                 var removable = target.GetComponent<RemovableObject>();
                 if (removable != null)
                 {
-                    // 視線チェック
-                    if (RequireLineOfSight && !RaycastTargetFinder.HasLineOfSight(transform.position, target.transform.position, DetectionLayers))
+                    // 視線チェック（壁レイヤーで遮蔽判定）
+                    if (RequireLineOfSight && !RaycastTargetFinder.HasLineOfSight(transform.position, target.transform.position, WallLayers))
                     {
                         continue;
                     }
@@ -141,9 +142,15 @@ namespace GameJam_HIKU
             float distance = Vector2.Distance(from, to);
 
             RaycastHit2D hit = Physics2D.Raycast(from, direction, distance, obstacleLayers);
-
             // ヒットしたオブジェクトがターゲット自身なら視線は通っている
-            return hit.collider == null || Vector2.Distance(hit.point, to) < 0.1f;
+            bool result = hit.collider == null || Vector2.Distance(hit.point, to) < 0.1f;
+
+#if UNITY_EDITOR
+            var color = result ? Color.green : Color.red;
+            Debug.DrawRay(from, direction * distance, color, 1f);
+#endif
+
+            return result;
         }
 
         /// <summary>カメラの画面境界取得</summary>
