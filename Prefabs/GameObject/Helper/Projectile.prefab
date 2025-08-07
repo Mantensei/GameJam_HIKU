@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2512524865213750087}
   - component: {fileID: 5183671354071903815}
   - component: {fileID: 5994520704914113410}
+  - component: {fileID: -7364288727024688060}
+  - component: {fileID: 7296076365684868194}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Stage
@@ -127,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DamageInfo>k__BackingField:
     <Damage>k__BackingField: 10
+  <AttributeTags>k__BackingField: []
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
   <LifeTime>k__BackingField: 0
   <TargetTags>k__BackingField:
@@ -135,3 +138,53 @@ MonoBehaviour:
   <SetAsChild>k__BackingField: 1
   <Shape>k__BackingField: 1
   <Size>k__BackingField: {x: 0.5, y: 0}
+  <SpawnOnAwake>k__BackingField: 1
+--- !u!114 &-7364288727024688060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797374494173412457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918a441e690fcbd4ebd97dbe661ddda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <removeDelay>k__BackingField: 0
+  <disableType>k__BackingField: 0
+--- !u!58 &7296076365684868194
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797374494173412457}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

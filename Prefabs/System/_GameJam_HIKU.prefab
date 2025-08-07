@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64cb075d0239f284aa87842b9f0beee0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 477eda3e70da4684eb3f726a43faf054, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ShotText>k__BackingField: {fileID: 7669525206898049556}
-  <MaxShots>k__BackingField: 10
+  <MaxShots>k__BackingField: 3
   <InfiniteShots>k__BackingField: 0
 --- !u!1 &8362017546624583966
 GameObject:
