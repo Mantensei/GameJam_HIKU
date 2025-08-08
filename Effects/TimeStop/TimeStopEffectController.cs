@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace GameJam_HIKU
+namespace GameJam_HIKU.FX
 {
     /// <summary>時間停止エフェクト制御</summary>
     public class TimeStopEffectController : MonoBehaviour
@@ -12,36 +12,46 @@ namespace GameJam_HIKU
         [field: SerializeField] public AnimationCurve FadeCurve { get; private set; } = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
         private static readonly int TimeStopIntensityID = Shader.PropertyToID("_Intensity");
-        private static readonly int WaveRadiusID = Shader.PropertyToID("_WaveRadius");
+        private static readonly int AnimationTimeID = Shader.PropertyToID("_AnimationTime");
+
         private Coroutine timeStopCoroutine;
         private bool isTimeStopActive;
+        private float totalTime = 0f;
 
         private void Awake()
         {
             if (TimeStopMaterial != null)
             {
                 TimeStopMaterial.SetFloat(TimeStopIntensityID, 0f);
-                TimeStopMaterial.SetFloat(WaveRadiusID, 0f);
+                TimeStopMaterial.SetFloat(AnimationTimeID, 0f);
+            }
+        }
+
+        private void Update()
+        {
+            // 常に時間を更新（TimeScale関係なく動く）
+            totalTime += Time.unscaledDeltaTime;
+
+            if (TimeStopMaterial != null)
+            {
+                // シェーダーに現在の時間を送る（これでノイズが動く）
+                TimeStopMaterial.SetFloat(AnimationTimeID, totalTime);
             }
         }
 
         private void OnDisable()
         {
-            // プレイモード終了時にエフェクトをリセット
             if (TimeStopMaterial != null)
             {
                 TimeStopMaterial.SetFloat(TimeStopIntensityID, 0f);
-                TimeStopMaterial.SetFloat(WaveRadiusID, 0f);
             }
         }
 
         private void OnDestroy()
         {
-            // オブジェクト削除時にもエフェクトをリセット
             if (TimeStopMaterial != null)
             {
                 TimeStopMaterial.SetFloat(TimeStopIntensityID, 0f);
-                TimeStopMaterial.SetFloat(WaveRadiusID, 0f);
             }
         }
 
@@ -81,29 +91,25 @@ namespace GameJam_HIKU
         private IEnumerator FadeInCoroutine()
         {
             isTimeStopActive = true;
-
             float elapsed = 0f;
 
             while (elapsed < FadeInDuration)
             {
                 float progress = elapsed / FadeInDuration;
-                float intensity = FadeCurve.Evaluate(progress);
+                float intensity = FadeCurve.Evaluate(progress) * 0.2f; // 0.2まで
 
                 if (TimeStopMaterial != null)
                 {
                     TimeStopMaterial.SetFloat(TimeStopIntensityID, intensity);
-                    // 波紋は最初は速く拡散、後半はゆっくり
-                    float waveRadius = Mathf.Pow(intensity, 0.7f) * 1.4f;
-                    TimeStopMaterial.SetFloat(WaveRadiusID, waveRadius);
                 }
 
-                elapsed += Time.unscaledDeltaTime; // TimeScale = 0 対応
+                elapsed += Time.unscaledDeltaTime;
                 yield return null;
             }
 
             if (TimeStopMaterial != null)
             {
-                TimeStopMaterial.SetFloat(TimeStopIntensityID, 1f);
+                TimeStopMaterial.SetFloat(TimeStopIntensityID, 0.2f);
             }
 
             timeStopCoroutine = null;
@@ -112,9 +118,8 @@ namespace GameJam_HIKU
         private IEnumerator FadeOutCoroutine()
         {
             isTimeStopActive = false;
-
             float elapsed = 0f;
-            float startIntensity = TimeStopMaterial != null ? TimeStopMaterial.GetFloat(TimeStopIntensityID) : 1f;
+            float startIntensity = TimeStopMaterial != null ? TimeStopMaterial.GetFloat(TimeStopIntensityID) : 0.2f;
 
             while (elapsed < FadeOutDuration)
             {
@@ -136,11 +141,6 @@ namespace GameJam_HIKU
             }
 
             timeStopCoroutine = null;
-        }
-
-        private void Update()
-        {
-            // テスト用コード削除
         }
 
         /// <summary>時間停止が有効かどうか</summary>
