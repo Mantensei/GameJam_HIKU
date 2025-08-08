@@ -20,7 +20,7 @@ Shader "GameJam_HIKU/TimeStopGlitch"
         _Brightness ("Brightness", Range(-0.5, 0.5)) = -0.02
         
         // 輪郭エフェクト
-        _VignetteStrength ("Vignette Strength", Range(0, 1)) = 0.2
+        _VignetteStrength ("Vignette Strength", Range(0, 2)) = 0.2
         _VignetteSoftness ("Vignette Softness", Range(0.1, 1)) = 0.7
         _VignetteColor ("Vignette Color", Color) = (0.3, 0.4, 0.5, 1.0)
         

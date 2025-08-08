@@ -29,15 +29,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AnimationTime: 49.336395
+    - _AnimationTime: 30.193865
     - _Blight: 0.287
     - _BlockSize: 16
     - _BlueShift: 0.781
-    - _Brightness: -0.02
+    - _Brightness: 0.3
     - _ChromaticAberration: 0.01
     - _ColorShift: 180
-    - _Contrast: 1.05
-    - _DesaturateAmount: 0
+    - _Contrast: 1.5
+    - _DesaturateAmount: 1
     - _DistortionStrength: 0.02
     - _EdgeIntensity: 1.56
     - _EdgeWidth: 0.3
@@ -50,24 +50,24 @@ Material:
     - _IdleNoiseStrength: 0.1
     - _Intensity: 0
     - _NoiseScale: 100
-    - _ScanLineAlpha: 0.03
+    - _ScanLineAlpha: 0.5
     - _ScanLineFrequency: 200
     - _ScanLineIntensity: 1
-    - _ScanLineSpeed: 3
+    - _ScanLineSpeed: 0.1
     - _ScanLineWidth: 0.01
     - _Size: -0.33
     - _StartGlitchDuration: 0.3
     - _StartGlitchStrength: 0.05
     - _TimeStopIntensity: 1
     - _VignetteSoftness: 0.8
-    - _VignetteStrength: 0.15
+    - _VignetteStrength: 2
     - _Vivid: 0.63
     - _WaveRadius: 0
     - _WaveStrength: 0.3
     - _WaveWidth: 0.05
     m_Colors:
     - _EdgeColor: {r: 0.18992524, g: 0.31823385, b: 0.41509432, a: 1}
-    - _TintColor: {r: 0.8, g: 0.9, b: 1, a: 1}
-    - _VignetteColor: {r: 0.3, g: 0.4, b: 0.5, a: 1}
+    - _TintColor: {r: 0, g: 0, b: 0, a: 1}
+    - _VignetteColor: {r: 0.084445074, g: 0.03844785, b: 0.3018868, a: 1}
     - _WaveCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
