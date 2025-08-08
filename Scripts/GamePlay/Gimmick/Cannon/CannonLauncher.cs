@@ -20,7 +20,7 @@ namespace GameJam_HIKU
         [field: SerializeField] public float LaunchSpeed { get; private set; } = 10f;
         [field: SerializeField] public Vector2 LaunchDirection { get; private set; } = Vector2.right;
         [field: SerializeField] public bool UseGravityForProjectiles { get; private set; } = false;
-        [field: SerializeField] public float ProjectileLifeTime { get; private set; } = 5f;
+        //[field: SerializeField] public float ProjectileLifeTime { get; private set; } = 5f;
 
         //[Header("Auto Fire Settings")]
         public bool AutoFire => FireInterval > 0f;
@@ -67,11 +67,6 @@ namespace GameJam_HIKU
 
         private void HandleInput()
         {
-            //if (Input.GetKeyDown(FireKey))
-            //{
-            //    Fire();
-            //}
-
             // 弾の切り替え（数字キー）
             for (int i = 1; i <= Mathf.Min(ProjectilePrefabs.Length, 9); i++)
             {
@@ -133,8 +128,9 @@ namespace GameJam_HIKU
             }
 
             // 弾を初期化・発射
-            projectile.Initialize(LaunchSpeed, fireDirection, ProjectileLifeTime);
+            projectile.Initialize(this, LaunchSpeed, fireDirection);
             instance.AddComponent<GetComponentAutoInitializer>();
+
 
             onFired?.Invoke(this, instance);
         }

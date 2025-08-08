@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71803c25c34ef94fa2901b8a0e3760f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetMarker: {fileID: 0}
-  sr: {fileID: 0}
-  lockOptions: 0
+  lockRequest:
+    options: 0
+    priority: 100
 --- !u!114 &3958043362711642028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +171,10 @@ MonoBehaviour:
   <TargetCamera>k__BackingField: {fileID: 0}
   <DetectionLayers>k__BackingField:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
+  <WallLayers>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 80
   <DetectionRange>k__BackingField: 10
   <RequireLineOfSight>k__BackingField: 1
 --- !u!114 &6835202169316738684
@@ -181,13 +184,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6157939044718361151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0fb8bb2104f9aa409c777a1dc22f1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <NormalCursor>k__BackingField: {fileID: 2800000, guid: 64cb075d0239f284aa87842b9f0beee0, type: 3}
-  <TargetCursor>k__BackingField: {fileID: 2800000, guid: 602cb87b6a29443b8636370ea0751574, type: 3}
+  <NormalCursor>k__BackingField: {fileID: 0}
+  <TargetCursor>k__BackingField: {fileID: 0}
   <CursorHotspot>k__BackingField: {x: 0, y: 0}
 --- !u!114 &8569925362958423704
 MonoBehaviour:
@@ -272,6 +275,8 @@ MonoBehaviour:
   <AttributeTags>k__BackingField: []
   <SpawnOffset>k__BackingField: {x: 0.75, y: 0}
   <LifeTime>k__BackingField: 0.2
+  <HP>k__BackingField: 0
+  <DestroyTogether>k__BackingField: 0
   <TargetTags>k__BackingField:
   - Player
   - Stage
@@ -341,15 +346,15 @@ PrefabInstance:
       objectReference: {fileID: -4004205664842412118, guid: 4ae0ca81cc2c8e247a06f003944e8c77, type: 3}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.883412
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8262959
+      value: 1.4999999
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.2402234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3443015541926270169, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       propertyPath: m_LocalRotation.w

@@ -38,7 +38,7 @@ namespace GameJam_HIKU
             if(!damageInfo.HasTag(DamageType.No_Invinsible))
             {
                 invinsibleTimer = invinsibleTime;
-                stateController.TryForceLock(() => animRegisterer?.Play());
+                stateController?.TryForceLock(() => animRegisterer?.Play());
             }
 
             foreach(var provider in GetComponentsInChildren<IHPProvider>())

@@ -14,7 +14,7 @@ namespace GameJam_HIKU
         [field: SerializeField] public float Speed { get; private set; } = 10f;
         [field: SerializeField] public Vector2 Direction { get; private set; } = Vector2.right;
 
-        [field: SerializeField] public float LifeTime { get; private set; } = 0f;
+        //[field: SerializeField] public float LifeTime { get; private set; } = 0f;
         private float remainingLifeTime;
 
         [field: SerializeField] public LayerMask CollisionLayers { get; private set; } = -1;
@@ -41,12 +41,12 @@ namespace GameJam_HIKU
         /// <summary>
         /// íeÇÃèâä˙âªÅiëÂñCÇ©ÇÁåƒÇ—èoÇ≥ÇÍÇÈÅj
         /// </summary>
-        public void Initialize(float speed, Vector2 direction, float lifeTime = 5f)
+        public void Initialize(CannonLauncher director, float speed, Vector2 direction)
         {
             Speed = speed;
             Direction = direction.normalized;
-            LifeTime = lifeTime;
-            remainingLifeTime = lifeTime;
+            //LifeTime = lifeTime;
+            //remainingLifeTime = lifeTime;
         }
 
         /// <summary>
@@ -76,15 +76,15 @@ namespace GameJam_HIKU
         /// </summary>
         private void UpdateLifetime()
         {
-            if (LifeTime <= 0f)
-            {
-                remainingLifeTime -= Time.deltaTime;
+            //if (LifeTime <= 0f)
+            //{
+            //    remainingLifeTime -= Time.deltaTime;
 
-                if (remainingLifeTime <= 0f)
-                {
-                    HandleLifetimeExpired();
-                }
-            }
+            //    if (remainingLifeTime <= 0f)
+            //    {
+            //        HandleLifetimeExpired();
+            //    }
+            //}
         }
 
         /// <summary>

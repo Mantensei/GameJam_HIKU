@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4210410028069273266}
   - component: {fileID: 2519204075422889834}
   - component: {fileID: 2983591316883098062}
-  m_Layer: 0
-  m_Name: Floor
+  m_Layer: 4
+  m_Name: OneWayFloor
   m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6797611250414824129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 121508897, guid: 05242a7a5baa3e94b8948ae521bf9154, type: 3}
+  m_SortingLayerID: -1880325569
+  m_SortingLayer: -1
+  m_SortingOrder: -100
+  m_Sprite: {fileID: 1883596835, guid: 71b3e099c1428384aa8fbd130cbce275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

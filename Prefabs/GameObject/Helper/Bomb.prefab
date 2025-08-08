@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -7364288727024688060}
   - component: {fileID: 7296076365684868194}
   m_Layer: 0
-  m_Name: Projectile
-  m_TagString: Stage
+  m_Name: Bomb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 509445248, guid: 05242a7a5baa3e94b8948ae521bf9154, type: 3}
+  m_Sprite: {fileID: -1957367766, guid: 71b3e099c1428384aa8fbd130cbce275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,9 @@ MonoBehaviour:
     <Damage>k__BackingField: 10
   <AttributeTags>k__BackingField: []
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
-  <LifeTime>k__BackingField: 0
+  <LifeTime>k__BackingField: 5
+  <HP>k__BackingField: 1
+  <DestroyTogether>k__BackingField: 1
   <TargetTags>k__BackingField:
   - Player
   - Stage
