@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 namespace GameJam_HIKU
 {
@@ -12,7 +10,7 @@ namespace GameJam_HIKU
         [field: SerializeField] public float FlashDuration { get; private set; } = 0.1f;
         [field: SerializeField] public AnimationCurve FlashCurve { get; private set; } = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
 
-        private static readonly int FlashIntensityID = Shader.PropertyToID("_FlashIntensity");
+        private static readonly int FlashIntensityID = Shader.PropertyToID("_Intensity");
         private Coroutine flashCoroutine;
 
         private void Awake()
@@ -34,7 +32,12 @@ namespace GameJam_HIKU
         }
 
         private IEnumerator FlashCoroutine()
-        {            
+        {
+            if (FlashMaterial == null)
+            {
+                yield break;
+            }
+
             float elapsed = 0f;
 
             while (elapsed < FlashDuration)
@@ -50,6 +53,14 @@ namespace GameJam_HIKU
 
             FlashMaterial.SetFloat(FlashIntensityID, 0f);
             flashCoroutine = null;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                TriggerFlash();
+            }
         }
     }
 }

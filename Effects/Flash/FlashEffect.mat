@@ -30,6 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FlashIntensity: 0
+    - _Intensity: 0
     m_Colors:
     - _FlashColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   m_BuildTextureStacks: []

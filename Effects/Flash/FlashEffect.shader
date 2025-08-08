@@ -3,7 +3,7 @@ Shader "GameJam_HIKU/FlashEffect"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _FlashIntensity ("Flash Intensity", Range(0, 1)) = 0
+        _Intensity ("Flash Intensity", Range(0, 1)) = 0
         _FlashColor ("Flash Color", Color) = (1, 1, 1, 1)
     }
     
@@ -40,7 +40,7 @@ Shader "GameJam_HIKU/FlashEffect"
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
             
-            float _FlashIntensity;
+            float _Intensity;
             float4 _FlashColor;
 
             Varyings vert(Attributes input)
@@ -56,7 +56,7 @@ Shader "GameJam_HIKU/FlashEffect"
                 half4 col = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
                 
                 // フラッシュエフェクトを適用
-                col.rgb = lerp(col.rgb, _FlashColor.rgb, _FlashIntensity);
+                col.rgb = lerp(col.rgb, _FlashColor.rgb, _Intensity);
                 
                 return col;
             }

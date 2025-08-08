@@ -80,7 +80,6 @@ namespace GameJam_HIKU
 
         private IEnumerator FadeInCoroutine()
         {
-            Debug.Log("Time Stop started!");
             isTimeStopActive = true;
 
             float elapsed = 0f;
@@ -107,13 +106,11 @@ namespace GameJam_HIKU
                 TimeStopMaterial.SetFloat(TimeStopIntensityID, 1f);
             }
 
-            Debug.Log("Time Stop fade in complete");
             timeStopCoroutine = null;
         }
 
         private IEnumerator FadeOutCoroutine()
         {
-            Debug.Log("Time Stop ending...");
             isTimeStopActive = false;
 
             float elapsed = 0f;
@@ -138,7 +135,6 @@ namespace GameJam_HIKU
                 TimeStopMaterial.SetFloat(TimeStopIntensityID, 0f);
             }
 
-            Debug.Log("Time Stop ended");
             timeStopCoroutine = null;
         }
 
