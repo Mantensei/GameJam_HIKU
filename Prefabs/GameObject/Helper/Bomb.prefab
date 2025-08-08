@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageInfo>k__BackingField:
-    <Damage>k__BackingField: 10
+    <Damage>k__BackingField: 50
   <AttributeTags>k__BackingField: []
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
   <LifeTime>k__BackingField: 5

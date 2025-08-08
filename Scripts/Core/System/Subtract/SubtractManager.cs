@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MantenseiLib;
+using System;
 
 namespace GameJam_HIKU
 {
@@ -19,6 +20,8 @@ namespace GameJam_HIKU
 
         public bool IsSubtractMode => skill?.IsSkillActive ?? false;
         public RemovableObject CurrentTarget => targetDetector?.CurrentHoverTarget;
+
+        public event Action onRemoveSuccess;
 
         void Start()
         {
@@ -79,7 +82,10 @@ namespace GameJam_HIKU
 
             if (Input.GetMouseButtonDown(0)) // 左クリック
             {
-                TryRemoveCurrentTarget();
+                if (TryRemoveCurrentTarget())
+                {
+                    onRemoveSuccess?.Invoke();
+                }
             }
         }
 
@@ -88,7 +94,7 @@ namespace GameJam_HIKU
         {
             if (!IsSubtractMode) return false;
 
-            return targetDetector?.TryRemoveHoverTarget() ?? false;
+            return targetDetector?.TryRemoveHoverTarget() == true;
         }
 
         /// <summary>モードUI更新</summary>
@@ -154,12 +160,12 @@ namespace GameJam_HIKU
 
         private void OnTargetEnter(RemovableObject target)
         {
-            Debug.Log($"Target entered: {target.name}");
+
         }
 
         private void OnTargetExit(RemovableObject target)
         {
-            Debug.Log($"Target exited: {target.name}");
+
         }
 
         private void OnTargetHover(RemovableObject target)
