@@ -16,6 +16,9 @@ namespace GameJam_HIKU
         [GetComponent(HierarchyRelation.Self | HierarchyRelation.Children)]
         DamageObjectSpawner DamageObjectSpawner;
 
+        [GetComponent]
+        EventObjectTrigger _eventObjectTrigger;
+
         private void Start()
         {
             Registerer?.OnCompleteAction(_ => StateController?.UnlockState());
@@ -29,7 +32,18 @@ namespace GameJam_HIKU
         void Kick()
         {
             Registerer?.Play();
-            DelayedActionManager.Execute(0.25f, () => DamageObjectSpawner?.SpawnDamageObject());
+            DelayedActionManager.Execute(0.25f, () =>
+            {
+                var obj = DamageObjectSpawner.SpawnDamageObject();
+                obj.onDamageApplied += (_, result) =>
+                {
+                    if (!(result?.Miss == true))
+                    {
+                        _eventObjectTrigger.SpawnPosition = obj.transform;
+                        _eventObjectTrigger?.ForceExecute();
+                    }
+                };
+            });
         }
-    } 
+    }
 }

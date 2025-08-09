@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AnimationTime: 30.193865
+    - _AnimationTime: 72.2657
     - _Blight: 0.287
     - _BlockSize: 16
     - _BlueShift: 0.781

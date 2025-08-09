@@ -15,14 +15,18 @@ namespace GameJam_HIKU
 
         public float currentHP { get; private set; }
 
-        public event System.Action OnHPZero;
+        public event System.Action onHPZero;
 
         public float CurrentHP => currentHP;
         public float Progress => MaxHP > 0f ? currentHP / MaxHP : 0f;
 
-        void Start()
+        private void Awake()
         {
             currentHP = MaxHP;
+        }
+
+        void Start()
+        {
             UpdateDisplay();
         }
 
@@ -50,7 +54,7 @@ namespace GameJam_HIKU
 
             if (currentHP <= 0f)
             {
-                OnHPZero?.Invoke();
+                onHPZero?.Invoke();
             }
         }
 
@@ -58,6 +62,13 @@ namespace GameJam_HIKU
         public void Heal(float healAmount)
         {
             currentHP = Mathf.Clamp(currentHP + healAmount, 0f, MaxHP);
+            UpdateDisplay();
+        }
+
+        public void SetMaxHP(float hp)
+        {
+            currentHP = hp;
+            MaxHP = hp;
             UpdateDisplay();
         }
 

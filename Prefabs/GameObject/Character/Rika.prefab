@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4742199034034537423}
   - component: {fileID: 3958043362711642028}
   - component: {fileID: 8976003692659787179}
+  - component: {fileID: 3039360501267184612}
   m_Layer: 0
   m_Name: Attack_02
   m_TagString: Untagged
@@ -166,6 +167,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb950e9d8525aa47a34a8402052c9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3039360501267184612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788359184532752579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad3d6dc72b95be4589e377a11b70931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TriggerEvent>k__BackingField: 0
+  <TargetObject>k__BackingField: {fileID: 1136066117647585046, guid: 45255e416ffd58c40bcc69d00095b009, type: 3}
+  <SpawnPosition>k__BackingField: {fileID: 0}
+  <Delay>k__BackingField: 0
 --- !u!1 &6157939044718361151
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +265,7 @@ MonoBehaviour:
   <TargetCamera>k__BackingField: {fileID: 0}
   <DetectionLayers>k__BackingField:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 17
   <WallLayers>k__BackingField:
     serializedVersion: 2
     m_Bits: 80
@@ -348,15 +365,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageInfo>k__BackingField:
-    <Damage>k__BackingField: 5
+    <Damage>k__BackingField: 40
   <AttributeTags>k__BackingField: []
-  <SpawnOffset>k__BackingField: {x: 0.75, y: 0}
-  <LifeTime>k__BackingField: 0.2
+  <SpawnOffset>k__BackingField: {x: 0.5, y: 0}
+  <LifeTime>k__BackingField: 0.1
   <HP>k__BackingField: 0
   <DestroyTogether>k__BackingField: 0
   <TargetTags>k__BackingField:
   - Player
   - Stage
+  - Gimmick
   <SetAsChild>k__BackingField: 1
   <Shape>k__BackingField: 0
   <Size>k__BackingField: {x: 0.75, y: 0.5}
@@ -609,9 +627,11 @@ PrefabInstance:
       propertyPath: _animations.Array.data[0].<frames>k__BackingField.Array.data[4].<duration>k__BackingField
       value: 0.016666668
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4933161792465635372, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1308551890130250693, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+    - {fileID: 9129975905577208279, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 78488713923352549, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       insertIndex: 2
@@ -623,6 +643,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4199398267769493200, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5493098521808568235}
+    - targetCorrespondingSourceObject: {fileID: 4152851998148435859, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2692918548899187554}
     - targetCorrespondingSourceObject: {fileID: 9144535392624966463, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8788572083431587252}
@@ -664,5 +687,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faf12df88b08a364f8d965cf52c4b5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8065379377509322574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4152851998148435859, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+  m_PrefabInstance: {fileID: 6218379461434069213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2692918548899187554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065379377509322574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607b500bcc7d173489d4eb5583d3c3e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
