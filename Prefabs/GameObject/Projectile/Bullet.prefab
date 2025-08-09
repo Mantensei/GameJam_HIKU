@@ -131,7 +131,7 @@ MonoBehaviour:
   <DamageInfo>k__BackingField:
     <Damage>k__BackingField: 10
   <AttributeTags>k__BackingField:
-  - No_Invinsible
+  - 
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
   <LifeTime>k__BackingField: 5
   <HP>k__BackingField: 1

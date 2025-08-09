@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MantenseiLib;
+using UnityEngine.EventSystems;
 
 namespace GameJam_HIKU
 {
@@ -37,33 +38,71 @@ namespace GameJam_HIKU
         {
             detectedTargets.Clear();
 
-            // 画面内のRemovableObjectを取得
+            // 1. 通常のゲームオブジェクト検知（既存処理）
             var screenTargets = RaycastTargetFinder.FindTargetsInScreenBounds(TargetCamera, DetectionLayers);
-
             foreach (var target in screenTargets)
             {
                 var removable = target.GetComponent<RemovableObject>();
                 if (removable != null)
                 {
-                    // 視線チェック（壁レイヤーで遮蔽判定）
                     if (RequireLineOfSight && !RaycastTargetFinder.HasLineOfSight(transform.position, target.transform.position, WallLayers))
                     {
                         continue;
                     }
-
                     detectedTargets.Add(removable);
                 }
             }
 
+            // 2. UI要素の検知（新規追加）
+            DetectUITargets();
+
             UpdateHoverTarget();
+        }
+
+        /// <summary>UI要素の削除可能オブジェクトを検知</summary>
+        private void DetectUITargets()
+        {
+            // GraphicRaycasterを使用してUI要素を検知
+            var eventSystem = UnityEngine.EventSystems.EventSystem.current;
+            if (eventSystem == null) return;
+
+            var pointerEventData = new UnityEngine.EventSystems.PointerEventData(eventSystem)
+            {
+                position = Input.mousePosition
+            };
+
+            var raycastResults = new List<UnityEngine.EventSystems.RaycastResult>();
+            eventSystem.RaycastAll(pointerEventData, raycastResults);
+
+            foreach (var result in raycastResults)
+            {
+                var removable = result.gameObject.GetComponent<RemovableObject>();
+                if (removable != null && !detectedTargets.Contains(removable))
+                {
+                    detectedTargets.Add(removable);
+                }
+            }
         }
 
         /// <summary>マウスカーソル下のターゲット更新</summary>
         private void UpdateHoverTarget()
         {
-            var hoverTarget = RaycastTargetFinder.GetTargetUnderCursor(TargetCamera, DetectionLayers);
-            var removable = hoverTarget?.GetComponent<RemovableObject>();
+            RemovableObject removable = null;
 
+            // 1. まずUI要素をチェック
+            var uiTarget = GetUITargetUnderCursor();
+            if (uiTarget != null)
+            {
+                removable = uiTarget;
+            }
+            else
+            {
+                // 2. UI要素がなければ物理オブジェクトをチェック
+                var hoverTarget = RaycastTargetFinder.GetTargetUnderCursor(TargetCamera, DetectionLayers);
+                removable = hoverTarget?.GetComponent<RemovableObject>();
+            }
+
+            // 検出したオブジェクトがdetectedTargetsに含まれているか確認
             if (removable != null && detectedTargets.Contains(removable))
             {
                 if (currentHoverTarget != removable)
@@ -87,6 +126,32 @@ namespace GameJam_HIKU
                     currentHoverTarget = null;
                 }
             }
+        }
+
+        /// <summary>カーソル下のUIターゲットを取得</summary>
+        private RemovableObject GetUITargetUnderCursor()
+        {
+            var eventSystem = EventSystem.current;
+            if (eventSystem == null) return null;
+
+            var pointerEventData = new PointerEventData(eventSystem)
+            {
+                position = Input.mousePosition
+            };
+
+            var results = new List<RaycastResult>();
+            eventSystem.RaycastAll(pointerEventData, results);
+
+            foreach (var result in results)
+            {
+                var removable = result.gameObject.GetComponent<RemovableObject>();
+                if (removable != null)
+                {
+                    return removable;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>ターゲットをクリック削除</summary>

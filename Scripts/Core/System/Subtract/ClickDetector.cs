@@ -56,6 +56,7 @@ namespace GameJam_HIKU
             // UI優先でチェック
             if (detectUI && IsPointerOverUI())
             {
+                Debug.Log("a");
                 HandleUIClick();
                 return;
             }
@@ -63,6 +64,7 @@ namespace GameJam_HIKU
             // GameObject のチェック
             if (detectGameObjects)
             {
+                Debug.Log("b");
                 HandleGameObjectClick(mousePosition);
             }
         }
@@ -80,6 +82,7 @@ namespace GameJam_HIKU
         /// </summary>
         private void HandleUIClick()
         {
+            Debug.Log(EventSystem.current);
             if (EventSystem.current == null) return;
 
             PointerEventData eventData = new PointerEventData(EventSystem.current)
@@ -89,15 +92,18 @@ namespace GameJam_HIKU
 
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
+            Debug.Log(0);
 
             foreach (var result in results)
             {
-                var damageable = result.gameObject.GetComponent<IDamageable>();
-                if (damageable != null)
+                Debug.Log(123123);
+                // RemovableObjectを優先的にチェック
+                var removable = result.gameObject.GetComponent<RemovableObject>();
+                if (removable != null)
                 {
+                Debug.Log(1);
                     var systemDamage = DamageInfoExtensions.CreateSystemDamage(attacker);
-                    damageable.TakeDamage(systemDamage);
-                    break; // 最初に見つかったもので処理終了
+                    removable.TakeDamage(systemDamage);
                 }
             }
         }
@@ -114,11 +120,12 @@ namespace GameJam_HIKU
 
             if (hit.collider != null)
             {
-                var damageable = hit.collider.GetComponent<IDamageable>();
-                if (damageable != null)
+                // RemovableObjectを優先的にチェック
+                var removable = hit.collider.GetComponent<RemovableObject>();
+                if (removable != null)
                 {
                     var systemDamage = DamageInfoExtensions.CreateSystemDamage(attacker);
-                    damageable.TakeDamage(systemDamage);
+                    removable.TakeDamage(systemDamage);
                 }
             }
         }

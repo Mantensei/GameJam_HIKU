@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ProjectilePrefabs>k__BackingField:
-  - {fileID: 8598668930455490174, guid: dc7b68cf919adb742925104a4b59a515, type: 3}
+  - {fileID: 4090917236806522536, guid: 951ad6b760977f8418a54938911a36ab, type: 3}
   <CurrentProjectileIndex>k__BackingField: 0
   <LaunchPoint>k__BackingField: {fileID: 0}
   <LaunchSpeed>k__BackingField: 10
