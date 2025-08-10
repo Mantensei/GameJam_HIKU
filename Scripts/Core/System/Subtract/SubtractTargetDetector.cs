@@ -97,9 +97,8 @@ namespace GameJam_HIKU
             }
             else
             {
-                // 2. UI要素がなければ物理オブジェクトをチェック
-                var hoverTarget = RaycastTargetFinder.GetTargetUnderCursor(TargetCamera, DetectionLayers);
-                removable = hoverTarget?.GetComponent<RemovableObject>();
+                // 2. 物理オブジェクトを全てチェック（RaycastAllを使用）
+                removable = GetPhysicsTargetUnderCursor();
             }
 
             // 検出したオブジェクトがdetectedTargetsに含まれているか確認
@@ -126,6 +125,37 @@ namespace GameJam_HIKU
                     currentHoverTarget = null;
                 }
             }
+        }
+
+        /// <summary>物理オブジェクトの検出（親子関係も考慮）</summary>
+        private RemovableObject GetPhysicsTargetUnderCursor()
+        {
+            if (TargetCamera == null) return null;
+
+            Vector2 worldPos = TargetCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            // 全てのヒットを取得
+            RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero, 0f, DetectionLayers);
+
+            // RemovableObjectを持つものを優先的に返す
+            foreach (var hit in hits)
+            {
+                if (hit.collider == null) continue;
+
+                // 1. 自身にRemovableObjectがあるか
+                var removable = hit.collider.GetComponent<RemovableObject>();
+                if (removable != null) return removable;
+
+                // 2. 親にRemovableObjectがあるか
+                removable = hit.collider.GetComponentInParent<RemovableObject>();
+                if (removable != null) return removable;
+
+                // 3. 子にRemovableObjectがあるか（オプション）
+                removable = hit.collider.GetComponentInChildren<RemovableObject>();
+                if (removable != null) return removable;
+            }
+
+            return null;
         }
 
         /// <summary>カーソル下のUIターゲットを取得</summary>
@@ -189,15 +219,31 @@ namespace GameJam_HIKU
             return targets;
         }
 
-        /// <summary>カーソル下のターゲット取得</summary>
+        /// <summary>カーソル下のターゲット取得（親子関係考慮）</summary>
         public static GameObject GetTargetUnderCursor(Camera camera, LayerMask layers)
         {
             if (camera == null) return null;
 
             Vector2 worldPos = camera.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero, 0f, layers);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero, 0f, layers);
 
-            return hit.collider?.gameObject;
+            // RemovableObjectを持つGameObjectを優先
+            foreach (var hit in hits)
+            {
+                if (hit.collider == null) continue;
+
+                // RemovableObjectを持つオブジェクトを探す
+                if (hit.collider.GetComponent<RemovableObject>() != null)
+                    return hit.collider.gameObject;
+
+                // 親にRemovableObjectがある場合はその親を返す
+                var parentRemovable = hit.collider.GetComponentInParent<RemovableObject>();
+                if (parentRemovable != null)
+                    return parentRemovable.gameObject;
+            }
+
+            // RemovableObjectが見つからない場合は最初のヒットを返す
+            return hits.Length > 0 ? hits[0].collider.gameObject : null;
         }
 
         /// <summary>視線チェック</summary>

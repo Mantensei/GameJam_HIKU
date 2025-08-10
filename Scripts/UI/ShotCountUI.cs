@@ -60,11 +60,11 @@ namespace GameJam_HIKU
         }
 
         /// <summary>écêîÇí«â¡</summary>
-        public void AddShots(int additionalShots)
+        public void AddShots(int additionalShots = 1)
         {
             if (InfiniteShots) return;
 
-            currentShots = Mathf.Clamp(currentShots + additionalShots, 0, MaxShots);
+            currentShots += additionalShots;
             UpdateDisplay();
         }
 

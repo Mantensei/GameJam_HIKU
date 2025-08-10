@@ -15,6 +15,7 @@ namespace GameJam_HIKU
         private bool isSkillActive = false;
         private float nextUseTime = 0f;
         private float skillEndTime = 0f;
+        private float lastDeactivatedTime = 0f;  // 追加：最後に無効化された時刻
 
         public event System.Action OnSkillActivated;
         public event System.Action OnSkillDeactivated;
@@ -22,6 +23,19 @@ namespace GameJam_HIKU
         public bool IsSkillActive => isSkillActive;
         public bool IsOnCooldown => Time.unscaledTime < nextUseTime;
         public float RemainingSkillTime => isSkillActive ? Mathf.Max(0f, skillEndTime - Time.unscaledTime) : 0f;
+
+        /// <summary>クールダウンの進行度（0-1）</summary>
+        public float CooldownProgress
+        {
+            get
+            {
+                if (!IsOnCooldown) return 1f;  // クールダウン完了
+                if (CooldownTime <= 0) return 1f;  // ゼロ除算防止
+
+                float elapsed = Time.unscaledTime - lastDeactivatedTime;
+                return Mathf.Clamp01(elapsed / CooldownTime);
+            }
+        }
 
         void Update()
         {
@@ -42,7 +56,6 @@ namespace GameJam_HIKU
         public void ActivateSkill()
         {
             if (!CanUseSkill || IsOnCooldown || isSkillActive) return;
-
             if (!UIHub.Instance.ShotCounter.TryShoot())
                 return;
 
@@ -58,6 +71,7 @@ namespace GameJam_HIKU
             if (!isSkillActive) return;
 
             isSkillActive = false;
+            lastDeactivatedTime = Time.unscaledTime;  // 追加：無効化時刻を記録
             nextUseTime = Time.unscaledTime + CooldownTime;
             TimeController.ResumeTime();
             OnSkillDeactivated?.Invoke();

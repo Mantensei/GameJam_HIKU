@@ -129,11 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageInfo>k__BackingField:
-    <Damage>k__BackingField: 10
+    <Damage>k__BackingField: 20
   <AttributeTags>k__BackingField:
   - 
   <SpawnOffset>k__BackingField: {x: 0, y: 0}
-  <LifeTime>k__BackingField: 5
+  <LifeTime>k__BackingField: 10
   <HP>k__BackingField: 1
   <DestroyTogether>k__BackingField: 1
   <TargetTags>k__BackingField:

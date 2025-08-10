@@ -1,117 +1,140 @@
-using System.Collections;
+using MantenseiLib;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GameJam_HIKU
 {
-
-    /// <summary>消去可能オブジェクトのハイライト</summary>
+    /// <summary>削除可能オブジェクトのハイライト表示</summary>
     public class TargetHighlight : MonoBehaviour
     {
-        [field: SerializeField] public GameObject HighlightEffect { get; private set; }
-        [field: SerializeField] public SpriteRenderer HighlightSprite { get; private set; }
-        [field: SerializeField] public Color HighlightColor { get; private set; } = Color.yellow;
-        [field: SerializeField] public Color HoverColor { get; private set; } = Color.red;
-        [field: SerializeField] public float PulseSpeed { get; private set; } = 2f;
+        [field: SerializeField] public Color HighlightColor { get; private set; } = new Color(1f, 1f, 0f, 0.5f);
+        [field: SerializeField] public Color HoverColor { get; private set; } = new Color(1f, 0f, 0f, 0.7f);
+        [field: SerializeField] public bool UseOutline { get; private set; } = false;
+        [field: SerializeField] public Material OutlineMaterial { get; private set; }
 
-        private List<RemovableObject> highlightedTargets = new List<RemovableObject>();
-        private RemovableObject hoverTarget = null;
-        private Dictionary<RemovableObject, GameObject> highlightObjects = new Dictionary<RemovableObject, GameObject>();
+        private Dictionary<RemovableObject, HighlightState> highlightStates = new Dictionary<RemovableObject, HighlightState>();
+        private RemovableObject currentHoverTarget;
 
-        /// <summary>ターゲットをハイライト表示</summary>
+        private class HighlightState
+        {
+            public Color originalColor;
+            public Material originalMaterial;
+            public SpriteRenderer spriteRenderer;
+            public Renderer targetRenderer;
+        }
+
+        /// <summary>削除可能ターゲットをハイライト</summary>
         public void HighlightTargets(IReadOnlyList<RemovableObject> targets)
         {
-            // 既存ハイライトをクリア
-            ClearHighlights();
+            // 既存のハイライトをクリア（リストにないもの）
+            var toRemove = new List<RemovableObject>();
+            foreach (var kvp in highlightStates)
+            {
+                if (!targets.Contains(kvp.Key))
+                {
+                    RestoreOriginal(kvp.Value);
+                    toRemove.Add(kvp.Key);
+                }
+            }
+            foreach (var key in toRemove)
+            {
+                highlightStates.Remove(key);
+            }
 
-            // 新しいターゲットをハイライト
+            // 新規ターゲットをハイライト
             foreach (var target in targets)
             {
-                AddHighlight(target, HighlightColor);
-            }
+                if (target == null) continue;
 
-            highlightedTargets.Clear();
-            highlightedTargets.AddRange(targets);
+                if (!highlightStates.ContainsKey(target))
+                {
+                    ApplyHighlight(target, false);
+                }
+            }
         }
 
-        /// <summary>ホバーターゲット設定</summary>
+        /// <summary>ホバー中のターゲットを設定</summary>
         public void SetHoverTarget(RemovableObject target)
         {
-            // 前のホバーを通常ハイライトに戻す
-            if (hoverTarget != null && highlightObjects.ContainsKey(hoverTarget))
+            // 前のホバーターゲットを通常ハイライトに戻す
+            if (currentHoverTarget != null && currentHoverTarget != target)
             {
-                UpdateHighlightColor(hoverTarget, HighlightColor);
-            }
-
-            hoverTarget = target;
-
-            // 新しいホバーを強調表示
-            if (hoverTarget != null && highlightObjects.ContainsKey(hoverTarget))
-            {
-                UpdateHighlightColor(hoverTarget, HoverColor);
-            }
-        }
-
-        /// <summary>全ハイライトをクリア</summary>
-        public void ClearHighlights()
-        {
-            foreach (var kvp in highlightObjects)
-            {
-                if (kvp.Value != null)
+                if (highlightStates.ContainsKey(currentHoverTarget))
                 {
-                    Destroy(kvp.Value);
+                    ApplyHighlight(currentHoverTarget, false);
                 }
             }
 
-            highlightObjects.Clear();
-            highlightedTargets.Clear();
-            hoverTarget = null;
-        }
-
-        /// <summary>個別ハイライト追加</summary>
-        private void AddHighlight(RemovableObject target, Color color)
-        {
-            if (target == null || highlightObjects.ContainsKey(target)) return;
-
-            GameObject highlight = null;
-
-            if (HighlightEffect != null)
+            // 新しいホバーターゲットを特別ハイライト
+            currentHoverTarget = target;
+            if (currentHoverTarget != null && highlightStates.ContainsKey(currentHoverTarget))
             {
-                highlight = Instantiate(HighlightEffect, target.transform);
-            }
-            else if (HighlightSprite != null)
-            {
-                highlight = new GameObject($"Highlight_{target.name}");
-                highlight.transform.SetParent(target.transform);
-                highlight.transform.localPosition = Vector3.zero;
-
-                var spriteRenderer = highlight.AddComponent<SpriteRenderer>();
-                spriteRenderer.sprite = HighlightSprite.sprite;
-                spriteRenderer.color = color;
-                spriteRenderer.sortingOrder = 100;
-            }
-
-            if (highlight != null)
-            {
-                highlightObjects[target] = highlight;
-
-                // パルス効果
-                var pulseEffect = highlight.AddComponent<PulseEffect>();
-                pulseEffect.Initialize(PulseSpeed);
+                ApplyHighlight(currentHoverTarget, true);
             }
         }
 
-        /// <summary>ハイライト色更新</summary>
-        private void UpdateHighlightColor(RemovableObject target, Color color)
+        /// <summary>ハイライトを適用</summary>
+        private void ApplyHighlight(RemovableObject target, bool isHover)
         {
-            if (!highlightObjects.TryGetValue(target, out var highlight) || highlight == null) return;
-
-            var spriteRenderer = highlight.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
+            var renderer = target.GetComponent<SpriteRenderer>();
+            if (renderer == null)
             {
-                spriteRenderer.color = color;
+                renderer = target.GetComponentInChildren<SpriteRenderer>();
             }
+
+            if (renderer == null) return;
+
+            // 初回の場合、元の状態を保存
+            if (!highlightStates.ContainsKey(target))
+            {
+                var state = new HighlightState
+                {
+                    originalColor = renderer.color,
+                    originalMaterial = renderer.material,
+                    spriteRenderer = renderer,
+                    targetRenderer = renderer
+                };
+                highlightStates[target] = state;
+            }
+
+            var highlightState = highlightStates[target];
+
+            // 色変更
+            Color targetColor = isHover ? HoverColor : HighlightColor;
+            renderer.color = Color.Lerp(highlightState.originalColor, targetColor, 0.5f);
+
+            // アウトライン適用（オプション）
+            if (UseOutline && OutlineMaterial != null)
+            {
+                renderer.material = OutlineMaterial;
+            }
+        }
+
+        /// <summary>元の状態に戻す</summary>
+        private void RestoreOriginal(HighlightState state)
+        {
+            if (state.spriteRenderer != null)
+            {
+                state.spriteRenderer.color = state.originalColor;
+                state.spriteRenderer.material = state.originalMaterial;
+            }
+        }
+
+        /// <summary>全てのハイライトをクリア</summary>
+        public void ClearHighlights()
+        {
+            foreach (var kvp in highlightStates)
+            {
+                RestoreOriginal(kvp.Value);
+            }
+            highlightStates.Clear();
+            currentHoverTarget = null;
+        }
+
+        void OnDestroy()
+        {
+            ClearHighlights();
         }
     }
-
 }

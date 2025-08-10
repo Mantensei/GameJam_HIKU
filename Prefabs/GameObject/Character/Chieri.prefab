@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: <colliderSize>k__BackingField.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7027979031556195627, guid: 021ee40d916def64ea764a88f952a891, type: 3}
+      propertyPath: <DamageInfo>k__BackingField.<Damage>k__BackingField
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7943254445945381944, guid: 021ee40d916def64ea764a88f952a891, type: 3}
       propertyPath: m_Name
       value: Chieri

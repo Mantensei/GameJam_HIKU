@@ -1206,7 +1206,6 @@ GameObject:
   - component: {fileID: 4790287368015465649}
   - component: {fileID: 6651259343278519961}
   - component: {fileID: 1681592112511258242}
-  - component: {fileID: 6711332083727435971}
   - component: {fileID: 4363727202290018947}
   - component: {fileID: 3154160875177569644}
   m_Layer: 0
@@ -1358,20 +1357,6 @@ MonoBehaviour:
   sr: {fileID: 0}
   <GroundChecker>k__BackingField: {fileID: 1545512713975887836}
   <CeillingChecker>k__BackingField: {fileID: 8280697473780815552}
---- !u!114 &6711332083727435971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8598668930455490174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918a441e690fcbd4ebd97dbe661ddda3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <removeDelay>k__BackingField: 0
-  <disableType>k__BackingField: 0
 --- !u!61 &4363727202290018947
 BoxCollider2D:
   m_ObjectHideFlags: 0

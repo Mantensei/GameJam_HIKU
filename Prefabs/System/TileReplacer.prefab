@@ -61,5 +61,13 @@ MonoBehaviour:
     targetPrefab: {fileID: 1999355811263715708, guid: 2938b9cea1679d04a87e2b1e4a6c58b4, type: 3}
   - sourceTile: {fileID: 11400000, guid: e85632dedfa8e06479728386c5034f19, type: 2}
     targetPrefab: {fileID: 1999355811263715708, guid: 786e201278007a248a286792457b6ebd, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 9b8a8f563231d4c4c9ffd3ede616de70, type: 2}
+    targetPrefab: {fileID: 2677078601283278536, guid: ee8a07005cb9c574fa68054d78e639bc, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 58a9702b9f7a1704ea04a646351a6df8, type: 2}
+    targetPrefab: {fileID: 7292726950987586311, guid: 1cf6a780af9c56c438dad6f48d34f651, type: 3}
+  - sourceTile: {fileID: 11400000, guid: c26e58dd36d4ab44f91c9882445fe4a9, type: 2}
+    targetPrefab: {fileID: 7292726950987586311, guid: 8cac053a5b0f03e41bbdc3cccb5595fe, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 80f6491a39f573e4b9a5696b91b7137e, type: 2}
+    targetPrefab: {fileID: 7292726950987586311, guid: 0685c42a903a29e41992e9274282501f, type: 3}
   replaceOnStart: 1
   parentObjectName: ReplacedTiles

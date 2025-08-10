@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2229371328497789571, guid: 572a61bbb6d4dfb4584386fbf574d760, type: 3}
       propertyPath: <FireOnAwake>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2229371328497789571, guid: 572a61bbb6d4dfb4584386fbf574d760, type: 3}
       propertyPath: <LaunchSpeed>k__BackingField
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2229371328497789571, guid: 572a61bbb6d4dfb4584386fbf574d760, type: 3}
       propertyPath: <FireInterval>k__BackingField
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2229371328497789571, guid: 572a61bbb6d4dfb4584386fbf574d760, type: 3}
       propertyPath: <VisibleUpdate>k__BackingField
