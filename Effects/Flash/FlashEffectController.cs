@@ -1,3 +1,4 @@
+using MantenseiLib.Audio;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace GameJam_HIKU
         /// <summary>フラッシュエフェクトを発動</summary>
         public void TriggerFlash()
         {
+            GetComponent<SEPlayer>()?.ForcePlaySE();
+
             if (flashCoroutine != null)
             {
                 StopCoroutine(flashCoroutine);

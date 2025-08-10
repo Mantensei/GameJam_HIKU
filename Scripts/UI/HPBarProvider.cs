@@ -18,11 +18,18 @@ namespace GameJam_HIKU
         Canvas HPBarCanvas;
 
         public int HP = 100;
+        static Transform hpParent;
 
         void Start()
         {
             HPBarUI.SetMaxHP(HP);
-            HPBarCanvas.transform.SetParent(null);
+
+            if ((hpParent?.IsSafe()) != true)
+            {
+                hpParent = new GameObject("HPBarParent").transform;
+            }
+
+            HPBarCanvas.transform.SetParent(hpParent);
             HPBarCanvas.transform.rotation = Quaternion.identity;
 
             HPBarUI.onHPZero += () =>

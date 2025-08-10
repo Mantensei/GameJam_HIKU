@@ -1,3 +1,4 @@
+using MantenseiLib.Audio;
 using System.Collections;
 using UnityEngine;
 
@@ -58,6 +59,8 @@ namespace GameJam_HIKU.FX
         /// <summary>時間停止エフェクトを開始</summary>
         public void StartTimeStop()
         {
+            GetComponent<SEPlayer>()?.ForcePlaySE();
+
             if (timeStopCoroutine != null)
             {
                 StopCoroutine(timeStopCoroutine);

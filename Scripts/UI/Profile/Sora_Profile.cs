@@ -1,6 +1,7 @@
 using MantenseiLib;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,7 +13,7 @@ namespace GameJam_HIKU
         CharacterProfile characterProfile;
 
         float timer = 0f;
-        float time = 1f;
+        float time = 5f;
         [SerializeField] GameObject healParticle;
 
         void Update()
@@ -27,9 +28,9 @@ namespace GameJam_HIKU
 
         void Skill()
         {
-            foreach(var hpBar in FindObjectsByType<HPBarUI>(FindObjectsSortMode.None))
+            foreach(var hpBar in FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IHPProvider>())
             {
-                hpBar.Heal(100f);
+                hpBar.TakeDamage(new DamageInfo(-100));
                 Instantiate(healParticle, hpBar.transform.position, Quaternion.identity);
 
                 var balloon = new string[]

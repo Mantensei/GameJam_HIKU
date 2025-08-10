@@ -15,7 +15,7 @@ namespace GameJam_HIKU
         }
     }
 
-    public interface IHPProvider
+    public interface IHPProvider : IMonoBehaviour
     {
         public void TakeDamage(DamageInfo damageInfo);
     }

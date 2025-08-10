@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8810758161689840025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368381805514833205}
+  - component: {fileID: 2967828675828364681}
+  m_Layer: 6
+  m_Name: TileReplacer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368381805514833205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810758161689840025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2967828675828364681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810758161689840025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772357ad727ef174e907c7bfb8d5b9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replacements:
+  - sourceTile: {fileID: 11400000, guid: 4fa588593334d8545bc720ff4c1f8cdf, type: 2}
+    targetPrefab: {fileID: 6797611250414824129, guid: 9311e501da764d4479d4493eca07543a, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 0f8677da89b7a0746a007569d383422a, type: 2}
+    targetPrefab: {fileID: 1999355811263715708, guid: f61210694167f09419b9f3ad85aa71b9, type: 3}
+  - sourceTile: {fileID: 11400000, guid: ea1cf0c6079bd1c43abb74c632f001e5, type: 2}
+    targetPrefab: {fileID: 6013335279640096063, guid: cb5e1f3d6be10a44999bb5c5bcae113b, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 71b1e86781d5aa04e80f51467fe63300, type: 2}
+    targetPrefab: {fileID: 6013335279640096063, guid: 479d7cae86b7a3c4faf71d8f2831333f, type: 3}
+  - sourceTile: {fileID: 11400000, guid: b7b5377db4835d54dacd350a101de0ae, type: 2}
+    targetPrefab: {fileID: 6013335279640096063, guid: c9730c69fceaba9458cc3764f596ebe7, type: 3}
+  - sourceTile: {fileID: 11400000, guid: a03883c44684a574b9099832c16c1630, type: 2}
+    targetPrefab: {fileID: 6013335279640096063, guid: d3865fa3714975d47bfd90779d6d6016, type: 3}
+  - sourceTile: {fileID: 11400000, guid: 2f41d194a665c3549a8b3c1a9035982e, type: 2}
+    targetPrefab: {fileID: 1999355811263715708, guid: 2938b9cea1679d04a87e2b1e4a6c58b4, type: 3}
+  - sourceTile: {fileID: 11400000, guid: e85632dedfa8e06479728386c5034f19, type: 2}
+    targetPrefab: {fileID: 1999355811263715708, guid: 786e201278007a248a286792457b6ebd, type: 3}
+  replaceOnStart: 1
+  parentObjectName: ReplacedTiles
